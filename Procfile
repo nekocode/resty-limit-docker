@@ -1,0 +1,1 @@
+nginx: openresty -c /nginx/nginx.conf -p /nginx -g "daemon off;"
