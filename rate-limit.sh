@@ -6,6 +6,8 @@ if [[ ${RATE_LIMIT} != "true" ]]; then
   exit 0
 fi
 
+# 以下代码修改自 https://github.com/hkbakke/tc-gen
+
 TC=$(command -v tc)
 ETHTOOL=$(command -v ethtool)
 IP=$(command -v ip)
@@ -193,7 +195,7 @@ IFB_IF_NAME=ifb0
 # 从文件中读取 UP_RATE 和 DOWN_RATE 配置
 if [[ ! -f "conf/rate-limit" ]]; then
   clear_all
-  echo "Config cleared"
+  echo "已清除所有限速配置"
   exit 0
 fi
 
