@@ -1,7 +1,7 @@
 local pool = ngx.shared["ip_limit_store"]
 
 -- 读取配置
-local pool_max_size = ngx.var._pool_max_size
+local pool_max_size = ngx.ctx.max_ip_count
 if pool_max_size then
   pool_max_size = tonumber(pool_max_size)
 end

@@ -12,7 +12,7 @@ done
 # 配置 ip-limit
 rm -f /conf/ip-limit
 if [[ -n ${IP_LIMIT} ]]; then
-  echo "set \$_pool_max_size ${IP_LIMIT};" >>/conf/ip-limit
+  echo "rewrite_by_lua_block {ngx.ctx.max_ip_count = ${IP_LIMIT}}" >>/conf/ip-limit
 fi
 
 # 配置 rate-limit
